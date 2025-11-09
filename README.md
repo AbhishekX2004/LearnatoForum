@@ -1,6 +1,6 @@
 # Learnato Discussion Forum
 
-**Theme:** "Empower learning through conversation." [cite: 4]
+**Theme:** "Empower learning through conversation."
 
 This project is a full-stack, microservice-based discussion forum built for the Learnato Hackathon. It allows learners and instructors to post questions, share insights, and reply in real time.
 
