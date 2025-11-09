@@ -2,7 +2,7 @@
 
 This is the React.js client for the Learnato Forum. It's built with Vite and styled with Tailwind CSS.
 
-## 🛠️ Tech Stack
+## Tech Stack
 
 * **Framework:** React.js
 * **Build Tool:** Vite
@@ -13,8 +13,7 @@ This is the React.js client for the Learnato Forum. It's built with Vite and sty
 
 ---
 
-## 🏃‍♂️ How to Run (Standalone)
-
+## How to Run (Standalone)
 1.  **Navigate to directory:**
     ```bash
     cd client
@@ -33,7 +32,7 @@ This is the React.js client for the Learnato Forum. It's built with Vite and sty
 
 ---
 
-## 🏛️ Project Structure
+## Project Structure
 
 ### `src/pages`
 * `HomePage.jsx`: The main post feed (`/`).

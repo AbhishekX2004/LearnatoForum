@@ -2,7 +2,7 @@
 
 This Node.js service provides the complete backend API for the Learnato Forum. It handles authentication, database logic, and real-time communication.
 
-## 🛠️ Tech Stack
+## Tech Stack
 
 * **Framework:** Express.js
 * **Database:** MongoDB (with Mongoose)
@@ -12,7 +12,7 @@ This Node.js service provides the complete backend API for the Learnato Forum. I
 
 ---
 
-## 🏃‍♂️ How to Run (Standalone)
+## How to Run (Standalone)
 
 1.  **Navigate to directory:**
     ```bash
@@ -40,7 +40,7 @@ This Node.js service provides the complete backend API for the Learnato Forum. I
 
 ---
 
-## 🗺️ API Endpoints
+## API Endpoints
 
 ### Auth (`/auth`)
 | Method | Route | Description |

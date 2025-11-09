@@ -3,12 +3,10 @@ import cors from 'cors';
 import mongoose from 'mongoose';
 import dotenv from 'dotenv';
 import passport from 'passport';
-// import cookieSession from 'cookie-session';
 import cookieParser from 'cookie-parser';
 import { initAuth } from './services/passport.js';
-
-import './services/passport.js';
-import { authenticateToken } from './services/authMiddleware.js';
+import path from 'path';
+import { fileURLToPath } from 'url';
 import postRoutes from './routes/postRoutes.js';
 import userRoutes from './routes/userRoutes.js';
 import authRoutes from './routes/authRoutes.js';
@@ -20,7 +18,7 @@ dotenv.config();
 const app = express();
 const PORT = process.env.PORT || 5001;
 
-// --- Middleware ---
+//  Middleware
 app.use(
   cors({
     origin: 'http://localhost:5173',
@@ -31,14 +29,6 @@ app.use(
 app.use(express.json());
 app.use(cookieParser());
 
-// Cookie Session Middleware
-// app.use(
-//   cookieSession({
-//     name: 'session',
-//     keys: [process.env.COOKIE_KEY],
-//     maxAge: 7 * 24 * 60 * 60 * 1000, // 7 days
-//   })
-// );
 
 // Passport Middleware
 app.use(passport.initialize());
@@ -56,6 +46,7 @@ const connectDB = async () => {
 
 initAuth();
 
+
 // Routes 
 app.use('/auth', authRoutes);
 app.use('/api/posts', postRoutes);
@@ -65,6 +56,21 @@ app.use('/api/search', searchRoutes);
 app.get('/', (req, res) => {
   res.send('Learnato Forum API is running...');
 });
+
+if (process.env.NODE_ENV === 'production') {
+  const __filename = fileURLToPath(import.meta.url);
+  const __dirname = path.dirname(__filename);
+  
+  const clientBuildPath = path.resolve(__dirname, '../../public');
+  app.use(express.static(clientBuildPath));
+  app.get('*', (req, res) => {
+    if (!req.path.startsWith('/api/') && !req.path.startsWith('/auth/')) {
+      res.sendFile(path.resolve(clientBuildPath, 'index.html'));
+    } else {
+      res.status(404).send('API route not found');
+    }
+  });
+}
 
 // Start Server
 const startServer = async () => {

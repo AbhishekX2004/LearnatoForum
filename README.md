@@ -4,11 +4,11 @@
 
 This project is a full-stack, microservice-based discussion forum built for the Learnato Hackathon. [cite_start]It allows learners and instructors to post questions, share insights, and reply in real time. [cite: 5, 8]
 
-**[View Live Demo](https://your-deployed-link.com)** *(<- Add your Cloud Run URL here)*
+**[View Live Demo](https://learnato-forum-381650529713.us-central1.run.app/)** *(<- Add your Cloud Run URL here)*
 
 ---
 
-## 🚀 Core Features
+## Core Features
 
 * [cite_start]**Google OAuth Authentication:** Secure login using Google (with JWTs). [cite: 25]
 * **Role Selection:** Users choose "Learner" or "Instructor" on first login.
@@ -23,7 +23,7 @@ This project is a full-stack, microservice-based discussion forum built for the 
 
 ---
 
-## 🛠️ Tech Stack
+## Tech Stack
 
 | Layer | Technology |
 | :--- | :--- |

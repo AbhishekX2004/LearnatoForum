@@ -151,7 +151,7 @@ router.get('/:userId', async (req, res) => {
     }
 
     const user = await User.findById(req.params.userId).select(
-      'displayName avatar createdAt role' // Send only public info
+      'displayName avatar createdAt role'
     );
 
     if (!user) {
