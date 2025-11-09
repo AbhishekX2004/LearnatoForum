@@ -44,7 +44,7 @@ const LoginPage = () => {
 
         {/* Google Sign-in Button */}
         <a
-          href="http://localhost:5001/auth/google"
+          href="/auth/google"
           className="flex items-center justify-center w-full p-4 bg-white border-2 border-gray-200 rounded-xl shadow-sm text-gray-700 font-semibold hover:bg-gray-50 hover:border-gray-300 hover:shadow-md transition-all duration-200 group"
         >
           {/* Google Icon SVG */}

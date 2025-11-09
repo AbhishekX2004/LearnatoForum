@@ -6,7 +6,7 @@ import { authenticateToken } from '../services/authMiddleware.js';
 import User from '../models/User.js';
 
 const router = express.Router();
-const FRONTEND_URL = 'http://localhost:5173';
+const FRONTEND_URL = '';
 const COOKIE_OPTIONS = {
     httpOnly: true,
     secure: process.env.NODE_ENV === 'production',
@@ -42,7 +42,7 @@ router.get(
             });
 
             // Redirect to the frontend role selection page
-            res.redirect(`${FRONTEND_URL}/select-role`);
+            res.redirect(`/select-role`);
 
         } else {
             // RETURNING USER: Send final token, redirect to main app 
@@ -54,7 +54,7 @@ router.get(
             res.cookie('jwt', token, COOKIE_OPTIONS);
 
             // Redirect to the main frontend app
-            res.redirect(FRONTEND_URL);
+            res.redirect('/');
         }
     }
 );

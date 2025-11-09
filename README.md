@@ -1,25 +1,24 @@
 # Learnato Discussion Forum
 
-[cite_start]**Theme:** "Empower learning through conversation." [cite: 4]
+**Theme:** "Empower learning through conversation." [cite: 4]
 
-This project is a full-stack, microservice-based discussion forum built for the Learnato Hackathon. [cite_start]It allows learners and instructors to post questions, share insights, and reply in real time. [cite: 5, 8]
+This project is a full-stack, microservice-based discussion forum built for the Learnato Hackathon. It allows learners and instructors to post questions, share insights, and reply in real time.
 
-**[View Live Demo](https://learnato-forum-381650529713.us-central1.run.app/)** *(<- Add your Cloud Run URL here)*
+**[View Live Demo](https://learnato-forum-381650529713.us-central1.run.app/)**
 
 ---
 
 ## Core Features
-
-* [cite_start]**Google OAuth Authentication:** Secure login using Google (with JWTs). [cite: 25]
+* **Google OAuth Authentication:** Secure login using Google (with JWTs). [cite: 25]
 * **Role Selection:** Users choose "Learner" or "Instructor" on first login.
-* [cite_start]**Post & Reply System:** Full CRUD functionality for creating posts and adding replies. [cite: 21]
-* [cite_start]**Upvoting:** Users can upvote posts (but not their own). [cite: 21]
-* [cite_start]**Real-time Updates:** New posts and replies are broadcast instantly (using Socket.io). [cite: 23]
+* **Post & Reply System:** Full CRUD functionality for creating posts and adding replies. [cite: 21]
+* **Upvoting:** Users can upvote posts (but not their own). [cite: 21]
+* **Real-time Updates:** New posts and replies are broadcast instantly (using Socket.io). [cite: 23]
 * **Pagination:** Efficient cursor-based pagination on all feeds.
 * **Profile Pages:** View user profiles, their posts, and (for your own profile) your upvoted posts.
-* [cite_start]**Search:** A full-text search for all posts (via MongoDB Text Index). [cite: 23]
-* [cite_start]**Mark as Answered:** Authors or Instructors can mark a post as resolved. [cite: 24]
-* [cite_start]**Dockerized:** The entire application is containerized for production. [cite: 14]
+* **Search:** A full-text search for all posts (via MongoDB Text Index). [cite: 23]
+* **Mark as Answered:** Authors or Instructors can mark a post as resolved. [cite: 24]
+* **Dockerized:** The entire application is containerized for production. [cite: 14]
 
 ---
 

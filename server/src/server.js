@@ -21,7 +21,9 @@ const PORT = process.env.PORT || 5001;
 //  Middleware
 app.use(
   cors({
-    origin: 'http://localhost:5173',
+    origin: process.env.NODE_ENV === 'production' 
+      ? 'https://learnato-forum-381650529713.us-central1.run.app'
+      : 'http://localhost:5173',
     credentials: true,
   })
 );
@@ -53,24 +55,34 @@ app.use('/api/posts', postRoutes);
 app.use('/api/users', userRoutes);
 app.use('/api/search', searchRoutes);
 
-app.get('/', (req, res) => {
-  res.send('Learnato Forum API is running...');
-});
 
 if (process.env.NODE_ENV === 'production') {
   const __filename = fileURLToPath(import.meta.url);
   const __dirname = path.dirname(__filename);
   
-  const clientBuildPath = path.resolve(__dirname, '../../public');
+  const clientBuildPath = path.resolve(__dirname, '../public'); // Fixed path
+  
   app.use(express.static(clientBuildPath));
-  app.get('*', (req, res) => {
-    if (!req.path.startsWith('/api/') && !req.path.startsWith('/auth/')) {
-      res.sendFile(path.resolve(clientBuildPath, 'index.html'));
-    } else {
-      res.status(404).send('API route not found');
+  
+  // Use a function without a wildcard route pattern
+  app.use((req, res, next) => {
+    // Skip API and auth routes
+    if (req.path.startsWith('/api/') || req.path.startsWith('/auth/')) {
+      return next();
     }
+    
+    // Serve index.html for all other routes (SPA fallback)
+    res.sendFile(path.join(clientBuildPath, 'index.html'), (err) => {
+      if (err) {
+        res.status(500).send('Error loading application');
+      }
+    });
   });
 }
+
+app.get('/', (req, res) => {
+  res.send('Learnato Forum API is running...');
+});
 
 // Start Server
 const startServer = async () => {
