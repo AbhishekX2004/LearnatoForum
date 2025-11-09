@@ -1,1 +1,14 @@
 @import "tailwindcss";
+
+.theme-color {
+    color: #2C4A68;
+}
+
+.bg-theme-color {
+    background-color: #2C4A68;
+}
+
+.bg-theme-color:hover {
+    background-color: #1E374A;
+    transform: scale(1.05);
+}

@@ -1,16 +1,59 @@
-# React + Vite
+# Frontend Client (Learnato Forum)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This is the React.js client for the Learnato Forum. It's built with Vite and styled with Tailwind CSS.
 
-Currently, two official plugins are available:
+## 🛠️ Tech Stack
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+* **Framework:** React.js
+* **Build Tool:** Vite
+* **Styling:** Tailwind CSS
+* **Routing:** React Router v6
+* **API Client:** Axios
+* **State Management:** React Context (`AuthContext`)
 
-## React Compiler
+---
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## 🏃‍♂️ How to Run (Standalone)
 
-## Expanding the ESLint configuration
+1.  **Navigate to directory:**
+    ```bash
+    cd client
+    ```
+2.  **Install dependencies:**
+    ```bash
+    npm install
+    ```
+3.  **Run development server:**
+    ```bash
+    npm run dev
+    ```
+    The client will start on `http://localhost:5173`.
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+**Note:** The backend server (on port `5001`) must be running for the client to function.
+
+---
+
+## 🏛️ Project Structure
+
+### `src/pages`
+* `HomePage.jsx`: The main post feed (`/`).
+* `LoginPage.jsx`: The public login page (`/login`).
+* `SelectRolePage.jsx`: First-time login page (`/select-role`).
+* `PostDetailPage.jsx`: View a single post and replies (`/post/:id`).
+* `CreatePostPage.jsx`: Form to create a new post (`/create-post`).
+* `ProfilePage.jsx`: User profile page (`/profile/:id`).
+* `SearchPage.jsx`: Search results page (`/search`).
+* `NotFoundPage.jsx`: 404 fallback page.
+
+### `src/components`
+* `Navbar.jsx`: Site-wide header and navigation.
+* `PostCard.jsx`: Reusable card for the post feed.
+* `UpvoteButton.jsx`: Self-contained upvote component.
+* `ReplyItem.jsx`: Component for a single reply.
+* `ProtectedRoute.jsx`: Router-level component to protect private pages.
+
+### `src/contexts`
+* `AuthContext.jsx`: Manages global user state and authentication status.
+
+### `src/api`
+* `index.js`: The central Axios instance, configured with `withCredentials: true` to handle auth cookies.
