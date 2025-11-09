@@ -5,6 +5,7 @@ import dotenv from 'dotenv';
 import passport from 'passport';
 // import cookieSession from 'cookie-session';
 import cookieParser from 'cookie-parser';
+import { initAuth } from './services/passport.js';
 
 import './services/passport.js';
 import { authenticateToken } from './services/authMiddleware.js';
@@ -52,6 +53,8 @@ const connectDB = async () => {
     process.exit(1);
   }
 };
+
+initAuth();
 
 // Routes 
 app.use('/auth', authRoutes);

@@ -142,4 +142,26 @@ router.get('/me/upvoted-posts', authenticateToken, async (req, res) => {
     }
 });
 
+// User Data
+// GET /api/users/:userId
+router.get('/:userId', async (req, res) => {
+  try {
+    if (!mongoose.Types.ObjectId.isValid(req.params.userId)) {
+      return res.status(400).json({ message: 'Invalid user ID' });
+    }
+
+    const user = await User.findById(req.params.userId).select(
+      'displayName avatar createdAt role' // Send only public info
+    );
+
+    if (!user) {
+      return res.status(404).json({ message: 'User not found' });
+    }
+
+    res.status(200).json(user);
+  } catch (err) {
+    res.status(500).json({ message: 'Server error', error: err.message });
+  }
+});
+
 export default router;
